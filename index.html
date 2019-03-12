@@ -1,272 +1,199 @@
-﻿<head>
-    <title>Zadanie_1</title>
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Google</title>
+    <link href="https://fonts.googleapis.com/css?family=Arial" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
     <style>
-        /* GORNA STOPKA*/
+        /* NAGŁÓWEK*/
         body {
             margin: 0;
             padding: 0;
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Arial', sans-serif;
+            width: 100%;
+            height: 100%
+        }
+
+        .grid-container {
+            display: grid;
+            height: 100vh;
+            grid-template-columns: auto auto auto;
+            grid-template-rows: 40px auto 40px;
+            grid-template-areas: ". . nav" "section section section" "footer footer footer";
         }
 
         header {
-            width: 100%;
-        }
-
-        html, body {
-            margin: 0;
-            height: 100%;
-            overflow: hidden
-        }
-
-        ul {
-            list-style: none;
+            grid-area: nav;
         }
 
         #up_footer {
+            color: black;
             float: right;
+            display: flex;
+            padding: 20px 35px;
+            font-size: 14px;
+            justify-content: flex-end;
         }
 
-            #up_footer li {
-                display: inline-block;
-                padding: 10px;
-                font-size: 14;
-            }
-
-            #up_footer #zaloguj_sie {
-                background: #4887ef;
-                margin-right: 25px;
-                padding: 7px 15px;
-                border-radius: 3px;
-                font-weight: bold;
-                color: #fff;
-            }
-
-        a {
+        nav a {
+            color: black;
+            font-size: 14px;
+            font-size: 13px;
             text-decoration: none;
-            color: inherit;
+            padding-right: 7px;
+            padding-left: 7px;
+            line-height: 24px;
+            width: auto;
+            margin: 5px;
         }
 
-        li.gorne_linki a:hover {
+        .gorne_linki a:hover {
             text-decoration: underline;
+            color: #424242;
         }
 
-        #zaloguj_sie:hover {
-            box-shadow: 1px 1px 5px #999;
+
+        #zaloguj_sie {
+            background: #4d79ff;
+            padding-left: 13px;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-weight: bold;
         }
+
+            #zaloguj_sie a {
+                color: white;
+                text-align: center;
+            }
+
+            #zaloguj_sie:hover {
+                box-shadow: 1px 1px 5px #999;
+                text-decoration: none;
+            }
+
+
+        /*Section*/
 
         /* Logo */
-        .google #logo {
+
+        section {
             text-align: center;
+            grid-area: section;
+        }
+
+        .google {
             display: block;
             clear: both;
             margin: 0 auto;
-            padding-top: 60px;
-            padding-bottom: 30px;
-        }
-
-        .pole_szukaj {
-            text-align: center;
+            padding-top: 150px;
+            padding-bottom: 20px;
         }
 
         #szukaj {
             width: 500px;
-            line-height: 40px;
-            padding: 20px 10px;
-            border-radius: 3px;
+            line-height: 8px;
+            padding: 15px 10px;
+            text-indent: 25px;
+            border-radius: 25px;
+            border: 1px solid #DFE1E5;
         }
 
             #szukaj:hover {
-                border-color: rgb(198, 194, 194);
-                padding-top: 0;
+                box-shadow: 1px 1px 5px rgb(198, 190, 190);
             }
-
-        .pole_szukaj #szukaj {
-            padding: 0 8px;
-        }
 
         /* Przyciski */
         .przyciski {
-            text-align: center;
-            padding-top: 20px;
-            margin-bottom: 450px;
-            border-radius: 3px;
+            padding-top: 35px;
         }
 
         #szukaj_google {
             width: 140px;
             line-height: 35px;
             border-radius: 3px;
-            background: rgb(250, 245, 245);
-            border: #e4e4e4;
-            font-weight: bold;
+            background: #F3F3F3;
+            border: 0px solid #e4e4e4;
             color: #666666;
             text-align: center;
             margin-right: 10px;
+            font-size: 14px;
         }
 
         #szczesliwy_traf {
             width: 140px;
             line-height: 35px;
             border-radius: 3px;
-            background: rgb(250, 245, 245);
-            border: #e4e4e4;
-            font-weight: bold;
+            background: #F3F3F3;
+            border: 0px solid #e4e4e4;
             color: #666666;
             text-align: center;
+            font-size: 14px;
         }
 
         #szukaj_google:hover {
-            box-shadow: 1px 1px 5px #999;
+            border: 0.5px solid #999;
             color: rgb(0, 0, 0);
+            cursor: pointer;
         }
 
+
         #szczesliwy_traf:hover {
-            box-shadow: 1px 1px 5px #999;
+            border: 0.5px solid #999;
             color: rgb(0, 0, 0);
+            cursor: pointer;
         }
 
         /* Stopka */
+
         footer {
-            background: rgb(250, 245, 245);
-            border-top: solid 1px #e4e4e4;
-            border-bottom: solid 1px #e4e4e4;
-            bottom: 0;
-            padding-bottom: 0;
-            width: 100%;
             position: fixed;
+            grid-area: footer;
+            line-height: 45px;
+            background: #F2F2F2;
+            border-top: 1px solid #e4e4e4;
+            bottom: 0;
+            width: 100%;
         }
 
-            footer ul li {
-                display: inline;
-                color: #666666;
+            footer .lewa a {
+                padding-right: 20px;
                 font-size: 14px;
-                padding: 13px;
+                text-decoration: none;
+                color: black;
             }
 
-            footer ul {
-                float: left;
-                padding: 1px;
+            footer .prawa a {
+                padding-left: 20px;
+                font-size: 14px;
+                text-decoration: none;
+                color: black;
             }
 
-                footer ul a:hover {
-                    text-decoration: underline;
-                }
+        .polska a {
+            font-size: 15px;
+            text-decoration: none;
+            color: #6F6F6F;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
 
         .prawa {
             float: right;
-            padding-right: 15px;
+            padding-right: 35px;
         }
 
         .lewa {
-            padding-left: 15px;
+            padding-left: 35px;
         }
 
-        footer li {
-            display: flex;
-            color: #999;
-            font-size: 15px;
-            padding: 10px;
-            padding-left: 30px;
-        }
-
-        .grid-container {
-            display: grid;
-            grid-template-columns: 1fr;
-            grid-template-rows: calc(100vh - 99px) 50px;
-            min-height: calc(100vh - 30px);
-            grid-template-areas: 'header' 'footer';
-        }
-
-        .first {
-            grid-area: header;
-        }
-
-        .last {
-            grid-area: footer;
-        }
-
-        @media screen and (max-width: 400px) {
-
-            li.gorne_linki a {
-                display: none;
-            }
-
-            #logo {
-                padding: 0;
-            }
-
-            .przyciski {
-                display: none;
-            }
-
-            #szukaj {
-                width: 80%;
-            }
-
-            footer {
-                bottom: 0;
-            }
-
-                footer ul {
-                    float: none;
-                    padding-bottom: 2px;
-                }
-
-            .lewa {
-                text-align: center;
-                margin: auto;
-                padding-top: 10px;
-            }
-
-            .prawa {
-                float: none;
-                text-align: center;
-            }
-        }
-
-        @media screen and (max-width: 565px) {
-
-            li.gorne_linki a {
-                display: none;
-            }
-
-            #logo {
-                padding: 0;
-            }
-
-            .przyciski {
-                display: none;
-            }
-
-            #szukaj {
-                width: 80%;
-            }
-
-            footer {
-                /* bottom: 0;
-           postion: absolute;*/
-                position: absolute;
-                bottom: 0;
-                width: 100%;
-                height: 60px;
-            }
-
-                footer ul {
-                    float: none;
-                    padding-bottom: 2px;
-                }
-
-            .lewa {
-                text-align: center;
-                margin: auto;
-                padding-top: 10px;
-            }
-
-            .prawa {
-                float: none;
-                text-align: center;
-            }
+        .polska {
+            padding-left: 35px;
+            border-bottom: 1px solid #e4e4e4;
         }
 
         @media (max-height: 450px) {
@@ -274,27 +201,116 @@
                 display: none;
                 visibility: hidden;
             }
+
+            #loupe {
+                position: relative;
+                z-index: 3;
+                right: -20px;
+                top: 3px;
+                width: 0px;
+                color: #1C6CC7;
+            }
+
+            /*FONT AWESOME*/
+
+            #App {
+                color: #666666;
+                padding-right: 10px;
+            }
+
+            #micro {
+                position: relative;
+                color: #1C6CC7;
+                z-index: 1;
+                left: -40px;
+                top: 2px;
+                width: 0px;
+            }
+
+            #klawiatura {
+                position: relative;
+                color: #666666;
+                z-index: 1;
+                left: -80px;
+                top: 2px;
+                width: 0px;
+            }
+
+            #lupa {
+                position: relative;
+                color: #4d79ff;
+                z-index: 3;
+                right: 510px;
+                top: 2px;
+                width: 0px;
+            }
+        }
+        /*IKONY*/
+
+        #loupe {
+            position: relative;
+            z-index: 3;
+            right: -20px;
+            top: 3px;
+            width: 0px;
+            color: #1C6CC7;
+        }
+
+        /*FONT AWESOME*/
+
+        #App {
+            color: #666666;
+            padding-right: 10px;
+        }
+
+        #micro {
+            position: relative;
+            color: #1C6CC7;
+            z-index: 1;
+            left: -40px;
+            top: 2px;
+            width: 0px;
+        }
+
+        #klawiatura {
+            position: relative;
+            color: #666666;
+            z-index: 1;
+            left: -80px;
+            top: 2px;
+            width: 0px;
+        }
+
+        #lupa {
+            position: relative;
+            color: #4d79ff;
+            z-index: 3;
+            right: 510px;
+            top: 2px;
+            width: 0px;
         }
     </style>
 </head>
-
 <body>
     <div class="grid-container">
-        <div class="first">
-            <header>
+
+        <header>
+            <nav id="up_footer">
                 <!--Górna stopka-->
-                <ul id="up_footer">
-                    <li class="gorne_linki" id="gmail"><a href="#">Gmail</a></li>
-                    <li class="gorne_linki"><a href="#">Grafika</a></li>
-                    <li id="zaloguj_sie"><a href="#">Zaloguj się</a></li>
-                </ul>
-            </header>
 
+                <div class="gorne_linki"><a href="#">Gmail</a></div>
+                <div class="gorne_linki"><a href="#">Grafika</a></div>
+                <div class="gorne_linki" id="App"><a href=""><i class="fas fa-th"></i></a></div>
+                <div id="zaloguj_sie"><a href="#">Zaloguj się</a></div>
 
+            </nav>
+        </header>
+
+        <section>
             <!--Logo-->
 
             <div class="google">
-                <a href="#" id="logo"><img src="https://www.google.pl/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt=" photo google-logo_zpspkcztsjo.png" /></a>
+                <img src="https://www.google.pl/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" />
             </div>
 
             <!--Pole szukaj-->
@@ -302,30 +318,41 @@
                 <form>
                     <label for="szukaj"></label>
                     <input type="text" id="szukaj">
+                    <i id="lupa" class="fas fa-search"></i>
+                    <i id="micro" class="fas fa-microphone"></i>
+                    <i id="klawiatura" class="fas fa-keyboard"></i>
                 </form>
             </div>
 
             <!--Przyciski-->
             <div class="przyciski">
-                <input type="zatwierdz" id="szukaj_google" value="Szukaj w Google">
-                <input type="zatwierdz" id="szczesliwy_traf" value="Szczęśliwy traf">
-            </div>
-        </div>
+                <button id="szukaj_google" class="mdc-button_label mdc-js-button_label mdc-button_label--fab">
+                    <a>Szukaj w Google</a>
+                </button>
+                <button id="szczesliwy_traf" class="mdc-button_label mdc-js-button_label mdc-button_label--fab">
+                    <a>Szczęśliwy traf</a>
+                </button>
 
-        <div class="last">
-            <footer>
-                <li><a href="#">Polska</a></li>
-                <ul class="lewa">
-                    <li><a href="#">Reklamuj się</a></li>
-                    <li><a href="#">Dla firm</a></li>
-                    <li><a href="#">O nas</a></li>
-                </ul>
-                <ul class="prawa">
-                    <li><a href="#">Prywatność</a></li>
-                    <li><a href="#">Warunki</a></li>
-                    <li><a href="#">Ustawienia</a></li>
-                </ul>
-            </footer>
-        </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="polska">
+                <a href="#">Polska</a></li>
+            </div>
+            <span class="lewa">
+                <a href="#">Reklamuj się</a>
+                <a href="#">Dla firm</a>
+                <a href="#">O nas</a>
+            </span>
+
+            <span class="prawa">
+                <a href="#">Prywatność</a>
+                <a href="#">Warunki</a>
+                <a href="#">Ustawienia</a>
+            </span>
+
+        </footer>
     </div>
 </body>
+</html>
