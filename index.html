@@ -7,8 +7,10 @@
     <link href="https://fonts.googleapis.com/css?family=Arial" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
+      
     <style>
         /* NAGŁÓWEK*/
+
         body {
             margin: 0;
             padding: 0;
@@ -29,7 +31,7 @@
             grid-area: nav;
         }
 
-        #up_footer {
+        #top_footer {
             color: black;
             float: right;
             display: flex;
@@ -55,7 +57,6 @@
             color: #424242;
         }
 
-
         #zaloguj_sie {
             background: #4d79ff;
             padding-left: 13px;
@@ -74,18 +75,17 @@
                 text-decoration: none;
             }
 
-
         /*Section*/
-
         /* Logo */
-
         section {
             text-align: center;
             grid-area: section;
+            align-items: center;
         }
 
         .google {
             display: block;
+            padding: initial;
             clear: both;
             margin: 0 auto;
             padding-top: 150px;
@@ -93,18 +93,22 @@
         }
 
         #szukaj {
+            padding: initial;
             width: 500px;
             line-height: 8px;
             padding: 15px 10px;
             text-indent: 25px;
             border-radius: 25px;
             border: 1px solid #DFE1E5;
+            text-align-last: auto;
+            z-index: 3;
+            outline: none;
         }
 
             #szukaj:hover {
                 box-shadow: 1px 1px 5px rgb(198, 190, 190);
             }
-
+              
         /* Przyciski */
         .przyciski {
             padding-top: 35px;
@@ -139,7 +143,6 @@
             cursor: pointer;
         }
 
-
         #szczesliwy_traf:hover {
             border: 0.5px solid #999;
             color: rgb(0, 0, 0);
@@ -147,7 +150,6 @@
         }
 
         /* Stopka */
-
         footer {
             position: fixed;
             grid-area: footer;
@@ -210,9 +212,7 @@
                 width: 0px;
                 color: #1C6CC7;
             }
-
             /*FONT AWESOME*/
-
             #App {
                 color: #666666;
                 padding-right: 10px;
@@ -245,8 +245,8 @@
                 width: 0px;
             }
         }
-        /*IKONY*/
 
+        /*IKONY*/
         #loupe {
             position: relative;
             z-index: 3;
@@ -257,7 +257,6 @@
         }
 
         /*FONT AWESOME*/
-
         #App {
             color: #666666;
             padding-right: 10px;
@@ -285,30 +284,40 @@
             position: relative;
             color: #4d79ff;
             z-index: 3;
-            right: 510px;
+            right: -22px;
             top: 2px;
             width: 0px;
         }
+
+        table {
+            text-align: left;
+            position: relative;
+            width: 510px;
+            margin-right: auto;
+            margin-left: auto;
+            border-radius: 15px;
+            border: 1px solid #DFE1E5;
+        }
+
     </style>
 </head>
 <body>
     <div class="grid-container">
 
         <header>
-            <nav id="up_footer">
+            <nav>
                 <!--Górna stopka-->
-
-                <div class="gorne_linki"><a href="#">Gmail</a></div>
-                <div class="gorne_linki"><a href="#">Grafika</a></div>
-                <div class="gorne_linki" id="App"><a href=""><i class="fas fa-th"></i></a></div>
-                <div id="zaloguj_sie"><a href="#">Zaloguj się</a></div>
-
+                <div id="top_footer">
+                    <div class="gorne_linki"><a href="#">Gmail</a></div>
+                    <div class="gorne_linki"><a href="#">Grafika</a></div>
+                    <div class="gorne_linki" id="App"><a href=""><i class="fas fa-th"></i></a></div>
+                    <div id="zaloguj_sie"><a href="#">Zaloguj się</a></div>
+                </div>
             </nav>
         </header>
 
         <section>
             <!--Logo-->
-
             <div class="google">
                 <img src="https://www.google.pl/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" />
             </div>
@@ -316,13 +325,14 @@
             <!--Pole szukaj-->
             <div class="pole_szukaj">
                 <form>
-                    <label for="szukaj"></label>
-                    <input type="text" id="szukaj">
                     <i id="lupa" class="fas fa-search"></i>
+                    <input v-model="inputContent" id="szukaj">
                     <i id="micro" class="fas fa-microphone"></i>
                     <i id="klawiatura" class="fas fa-keyboard"></i>
                 </form>
+                <v-autocompleter v-bind:input="inputContent" v-if="inputContent"></v-autocompleter>
             </div>
+            
 
             <!--Przyciski-->
             <div class="przyciski">
@@ -354,5 +364,10 @@
 
         </footer>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="animals.js"></script>
+    <script src="main2.js"></script>
+
 </body>
 </html>
