@@ -20,7 +20,6 @@ Vue.component('v-autocompleter', {
           </table>
         </div>`
 })
-
 new Vue({
     el: ".anim",
     data: function () {
