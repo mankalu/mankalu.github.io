@@ -10,7 +10,6 @@
 
     <style>
         /* NAGŁÓWEK*/
-
         body {
             margin: 0;
             padding: 0;
@@ -91,7 +90,7 @@
                 box-shadow: 1px 1px 5px #999;
                 text-decoration: none;
             }
-                    
+
         .google {
             padding-left: 30px;
             grid-column-start: 1;
@@ -102,6 +101,9 @@
             padding-right: 50px;
         }
 
+        .anim{
+            position: relative;
+        }
 
         #szukaj {
             grid-area: navigate;
@@ -146,8 +148,6 @@
                     cursor: pointer;
                     outline: none;
                 }
-
-
         /*Section*/
         section {
             text-align: left;
@@ -186,7 +186,7 @@
             word-wrap: break-word;
             font-size: 13px;
         }
-               
+
         /* Stopka */
         footer {
             position: fixed;
@@ -205,7 +205,6 @@
                 color: black;
             }
 
-          
         .polska a {
             font-size: 15px;
             text-decoration: none;
@@ -215,7 +214,7 @@
         footer a:hover {
             text-decoration: underline;
         }
-               
+
         .lewa {
             padding-left: 35px;
         }
@@ -240,7 +239,6 @@
                 color: #1C6CC7;
             }
         }
-
         /*FONT AWESOME*/
         #App {
             display: flex;
@@ -280,14 +278,17 @@
 
         table {
             text-align: left;
-            position: relative;
+            position: absolute;
             width: 510px;
             margin-right: auto;
             margin-left: auto;
             border-radius: 15px;
             border: 1px solid #DFE1E5;
+            background: white;
+            z-index: 100;
+            top: 85px;
+            left: 0;
         }
-
     </style>
 </head>
 <body>
@@ -314,7 +315,7 @@
                 </div>
                 <v-autocompleter v-bind:input="inputContent" v-if="inputContent"></v-autocompleter>
             </div>
-            
+
             <!--Górna stopka-->
             <div id="top_footer">
                 <div class="gorne_linki" id="App"><a href=""><i class="fas fa-th"></i></a></div>
@@ -378,7 +379,7 @@
                         <h3>consectetur adipiscing elit</h3>
                         <a>Aliquam sit amet dui dapibus, bibendum mauris hendrerit, mollis odio.</a>
                     </li>
-                </div>
+            </div>
         </section>
 
         <footer>
